@@ -1,0 +1,187 @@
+/* 2. Style thẻ body: font chữ tiếng Việt dễ đọc và cỡ chữ cơ bản */
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: #eef2f5;
+  color: #1f2933;
+}
+
+/* Yêu cầu 1: Link Skip to Main Content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background-color: #ffd166;
+  color: #102a43;
+  padding: 10px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  border-radius: 5px;
+}
+
+/* 3. Style thẻ header: màu nền đậm tương phản với chữ sáng */
+header {
+  background-color: #0b4f6c;
+  color: #ffffff;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+/* Yêu cầu 3: Đổi nav sang inline-block và độ rộng khoảng 80% */
+nav {
+  display: inline-block;
+  width: 80%;
+  background-color: #013a63;
+  padding: 12px 0;
+  text-align: center;
+}
+
+/* Yêu cầu 4: Selector hậu duệ cho ảnh nằm bên trong nav với chiều rộng khoảng 10% */
+nav img {
+  width: 10%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Yêu cầu 2: Comment out style cũ của thẻ li */
+/*
+li {
+  display: inline-block;
+  width: 220px;
+  text-align: center;
+  padding: 8px;
+}
+*/
+
+/* Tùy chỉnh liên kết bên trong thanh điều hướng cho đẹp và tương phản cao */
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #2a6f97;
+  color: #ffd166;
+}
+
+/* 5. Style thẻ main: màu nền sáng sạch sẽ và cỡ chữ nội dung */
+main {
+  background-color: #ffffff;
+  font-size: 18px;
+  color: #102a43;
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Riêng danh sách ul bên trong thẻ main hiển thị dọc lại cho dễ đọc */
+main ul {
+  padding-left: 20px;
+}
+
+main li {
+  display: list-item;
+  width: auto;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* Yêu cầu 5 & 7: Class .grid 2 cột (~40%) + justify-content, align-items, row-gap */
+.grid {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 24px;
+}
+
+/* Yêu cầu 6: Ảnh trong .grid rộng 100% (không ảnh hưởng ảnh trong .flex) */
+.grid img {
+  width: 100%;
+  margin: 0;
+}
+
+/* Yêu cầu 8: Class .flex dùng flex, flex-wrap và justify-content */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* 8. Style thẻ h1: căn giữa, font chữ và màu sắc nổi bật */
+h1 {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffd166;
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  color: #0b4f6c;
+  border-bottom: 2px solid #d9e2ec;
+  padding-bottom: 8px;
+  margin-top: 30px;
+}
+
+/* 9. Style thẻ p: giãn dòng thoáng, dễ đọc tiếng Việt có dấu */
+p {
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+/* 11. Tinh chỉnh thêm hình ảnh và nút liên kết cho trang đẹp hơn */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+main a {
+  display: inline-block;
+  background-color: #0b4f6c;
+  color: #ffffff;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+main a:hover {
+  background-color: #013a63;
+}
+
+/* 6. Style thẻ footer: màu nền tối, chữ trắng tương phản cao */
+footer {
+  background-color: #102a43;
+  color: #f0f4f8;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 15px;
+}
