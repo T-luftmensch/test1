@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="gallery.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to Main Content</a>
+  <header>
+    <h1>Interactive Photo Gallery</h1>
+    <p>Explore six scenes using your mouse or keyboard.</p>
+  </header>
+  <main id="main">
+    <div id="image" class="display" role="img" aria-label="Gallery preview">
+      Hover over or focus an image below to preview it here.
+    </div>
+    <section class="gallery" aria-label="Photo thumbnails">
+      <figure>
+        <img src="images/mountain.jpg" alt="Sunrise glowing over layered mountain peaks with snowy highlights">
+        <figcaption>Mountain Sunrise</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ocean.jpg" alt="Blue ocean waves rolling beneath a bright sun">
+        <figcaption>Ocean Waves</figcaption>
+      </figure>
+      <figure>
+        <img src="images/forest.jpg" alt="A green forest path surrounded by tall evergreen trees">
+        <figcaption>Forest Trail</figcaption>
+      </figure>
+      <figure>
+        <img src="images/desert.jpg" alt="Golden desert dunes beneath a pale sun">
+        <figcaption>Desert Dunes</figcaption>
+      </figure>
+      <figure>
+        <img src="images/city.jpg" alt="City skyline with glowing windows at dusk">
+        <figcaption>City at Dusk</figcaption>
+      </figure>
+      <figure>
+        <img src="images/flower.jpg" alt="Pink wildflowers with yellow centers growing in a meadow">
+        <figcaption>Wildflowers</figcaption>
+      </figure>
+    </section>
+  </main>
+  <footer><p>Accessible gallery demo — mouse and keyboard supported.</p></footer>
+</body>
+</html>
