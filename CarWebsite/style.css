@@ -1,0 +1,392 @@
+/* =========================================
+   AUTOWORLD - LUXURY YOUTH THEME
+   ========================================= */
+
+/* Import Font chữ hiện đại từ Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap");
+
+/* --- Cấu hình chung (Variables) --- */
+:root {
+  --bg-dark: #0a0a0c; /* Nền tối sâu thẳm */
+  --surface: #151518; /* Màu nền của các khối (Card) */
+  --surface-hover: #1e1e22;
+  --primary: #ff2a55; /* Đỏ Neon cá tính (điểm nhấn) */
+  --primary-hover: #ff4d6d;
+  --text-main: #f4f4f5; /* Chữ trắng sáng */
+  --text-muted: #a1a1aa; /* Chữ xám cho mô tả */
+  --glass-bg: rgba(10, 10, 12, 0.7); /* Nền kính mờ */
+  --border: rgba(255, 255, 255, 0.08);
+  --font-main: "Montserrat", sans-serif;
+  --transition: all 0.3s ease;
+}
+
+/* --- Reset CSS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.7;
+  /* Hiệu ứng nền chuyển động nhẹ (Tuỳ chọn) */
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    #1a1a24 0%,
+    var(--bg-dark) 50%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Accessibility: Skip Link --- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 10px;
+  background: var(--primary);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #fff, var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.2rem;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  padding: 5px 0;
+  transition: var(--transition);
+}
+
+/* Hiệu ứng gạch chân chạy khi hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Ẩn dấu gạch đứng "|" trong nav để dùng CSS flexbox thay thế */
+nav {
+  font-size: 0;
+}
+nav a {
+  font-size: 1rem;
+}
+
+/* --- MAIN CONTENT & SECTION (Grid Layout) --- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Xử lý lỗi HTML: nếu section nằm ngoài main trong index.html */
+body > section {
+  max-width: 1300px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 2rem;
+}
+
+/* --- CARD STYLE (Áp dụng cho các Section) --- */
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+section:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 42, 85, 0.15);
+  border-color: rgba(255, 42, 85, 0.3);
+}
+
+section h2,
+section h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Thanh màu điểm nhấn dưới tiêu đề */
+section h2::after,
+section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+section p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* --- IMAGE STYLING --- */
+section img {
+  width: 100% !important; /* Ghi đè thuộc tính width="500" trong HTML */
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+section:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* --- LINKS --- */
+main a,
+section a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+main a:hover,
+section a:hover {
+  color: var(--primary-hover);
+  transform: translateX(5px);
+}
+
+/* --- FORM (Trang Contact) --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+form p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #555;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255, 42, 85, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="submit"] {
+  background: linear-gradient(135deg, var(--primary), #b31033);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(255, 42, 85, 0.4);
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #d91a42);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 42, 85, 0.6);
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #050505;
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--primary-hover);
+  text-shadow: 0 0 10px rgba(255, 42, 85, 0.5);
+}
+
+/* --- RESPONSIVE (Tương thích Mobile & Tablet) --- */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  main {
+    grid-template-columns: 1fr; /* Chuyển thành 1 cột trên mobile */
+    padding: 2rem 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  body > section {
+    padding: 0 1rem;
+  }
+}
+.page-intro {
+  grid-column: 1 / -1; /* Chiếm toàn bộ chiều ngang */
+  text-align: center; /* Căn giữa cho đẹp */
+  margin-bottom: 2rem;
+}
+.page-intro h2 {
+  color: var(--text-main);
+  font-size: 2.2rem;
+}
+.page-intro p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
